@@ -1,9 +1,8 @@
 """ URL module """
 from django.urls import path
-from .views import manage_customers, get_customer_balance
-
+from .views import ManageCustomersView, GetCustomerBalanceView
 
 urlpatterns = [
-    path(r'customers/', manage_customers, name='manage_customers'),
-    path(r'balance/<str:external_id>/', get_customer_balance, name='get_customer_balance'),
+    path('customers/', ManageCustomersView.as_view(), name='manage_customers'),
+    path('balance/<str:external_id>/', GetCustomerBalanceView.as_view(), name='get_customer_balance'),
 ]
