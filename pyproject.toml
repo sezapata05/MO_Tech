@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "mo-tech"
+version = "0.1.0"
+description = ""
+authors = ["Seba Zapata <s.zapata05@outlook.com>"]
+readme = "README.md"
+packages = [{include = "mo_tech"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+django = "4.2"
+djangorestframework = "^3.14.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
