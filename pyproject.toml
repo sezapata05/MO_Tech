@@ -10,6 +10,7 @@ packages = [{include = "mo_tech"}]
 python = "^3.9"
 django = "4.2"
 djangorestframework = "^3.14.0"
+coreapi = "^2.3.3"
 
 
 [build-system]
