@@ -2,6 +2,7 @@
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
 from Customers.models import CustumersModel
 from .models import LoansModel
 from .serializers import LoansModelSerializer
@@ -9,6 +10,8 @@ from .serializers import LoansModelSerializer
 
 class LoansCreateAPIView(APIView):
     """ API View class """
+    permission_classes = [IsAuthenticated]
+
     def post(self, request):
         """ POST METHOD """
         serializer = LoansModelSerializer(data=request.data)
@@ -23,6 +26,8 @@ class LoansCreateAPIView(APIView):
 
 class LoansByCustomerAPIView(APIView):
     """ API View class """
+    permission_classes = [IsAuthenticated]
+
     def get(self, request, customer_external_id):
         """ GET METHOD """
         try:
