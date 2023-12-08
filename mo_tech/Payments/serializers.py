@@ -2,18 +2,19 @@
 from rest_framework import serializers
 from .models import PaymentsModel, PaymentsDetailsModel
 
-class PaymentsDetailsSerializer(serializers.ModelSerializer):
-    """ PaymentsDetailsSerializer class """
+
+class PaymentsDetailsModelSerializer(serializers.ModelSerializer):
+    """ PaymentsDetailsModelSerializer """
     class Meta:
-        """ Meta class """
+        """ Meta Class """
         model = PaymentsDetailsModel
         fields = '__all__'
 
-class PaymentsSerializer(serializers.ModelSerializer):
-    """ PaymentsSerializer class """
-    paymentdetailsmodel_set = PaymentsDetailsSerializer(many=True, read_only=True)
+class PaymentsModelSerializer(serializers.ModelSerializer):
+    """ PaymentsModelSerializer """
+    paymentsdetailsmodel_set = PaymentsDetailsModelSerializer(many=True, read_only=True)
 
     class Meta:
-        """ Meta class """
+        """ Meta Class """
         model = PaymentsModel
         fields = '__all__'

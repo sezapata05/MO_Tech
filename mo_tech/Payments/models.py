@@ -1,10 +1,10 @@
 """ Payments models """
 from django.db import models
-from Customers.models import CustumersModel
 from Loans.models import LoansModel
+from Customers.models import CustumersModel
 
 class PaymentsModel(models.Model):
-    """ Payments Model"""
+    """ Payment model Class """
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     external_id = models.CharField(max_length=60)
@@ -14,17 +14,17 @@ class PaymentsModel(models.Model):
     custumers_id = models.ForeignKey(CustumersModel, on_delete=models.CASCADE)
 
     class Meta:
-        """ Meta class """
+        """ Meta Class """
         db_table = 'payments_payments'
 
 class PaymentsDetailsModel(models.Model):
-    """ PaymentsDetails Model """
+    """ Payment Detail model class """
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     amount = models.DecimalField(max_digits=20, decimal_places=10, default=0.0)
-    loand_id = models.ForeignKey(LoansModel, on_delete=models.CASCADE)
-    payment_id = models.ForeignKey(PaymentsModel, on_delete=models.CASCADE)
+    loan_id = models.ForeignKey(LoansModel, on_delete=models.CASCADE)
+    payment_id = models.ForeignKey(PaymentsModel, on_delete=models.CASCADE, related_name='paymentsdetailsmodel_set')
 
     class Meta:
-        """ Meta class """
+        """ Meta Class """
         db_table = 'payments_paymentsdetail'
