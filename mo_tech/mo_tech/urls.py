@@ -20,9 +20,9 @@ from rest_framework.documentation import include_docs_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/payments/', include('Payments.urls')),
     path('api/customers/', include('Customers.urls')),
     path('api/loans/', include('Loans.urls')),
-    # path('api/payments/', include('Payments.urls')),
     path('login/', include('login.urls')),
     path('docs/', include_docs_urls(
         title="MO",

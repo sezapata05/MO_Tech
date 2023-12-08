@@ -228,6 +228,72 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Payments",
+			"item": [
+				{
+					"name": "Get payment",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/payments/get_payments_by_customer/testing",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"payments",
+								"get_payments_by_customer",
+								"testing"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"external_id\": \"payment-001\",\r\n    \"custumers_id\": 1,\r\n    \"paymentsdetailsmodel_set\": [\r\n        {\r\n            \"loand_id\": 1,\r\n            \"amount\": 500.0\r\n        }\r\n    ],\r\n    \"paid_at\": \"2023-06-12\",\r\n    \"total_amount\": 1000.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/payments/create_payment/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"payments",
+								"create_payment",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [
@@ -258,7 +324,7 @@
 		},
 		{
 			"key": "token",
-			"value": "Token b6f0d82104b0e4641e181240dc680d52b0ef6f35"
+			"value": "Token 30138ce371e21798490855a9683272518279a3b4"
 		}
 	]
 }
